@@ -28,12 +28,12 @@ const AdminDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       // 1. Fetch Questions for the count
-      const qRes = await fetch('http://127.0.0.1:8000/api/admin/questions');
+      const qRes = await fetch('https://codeexam-api.onrender.com/api/admin/questions');
       const qData = await qRes.json();
       setQuestionsCount(qData.length);
 
       // 2. Fetch Results for stats and activity list
-      const rRes = await fetch('http://127.0.0.1:8000/api/admin/results');
+      const rRes = await fetch('https://codeexam-api.onrender.com/api/admin/results');
       const rData = await rRes.json();
       setResults(rData);
     } catch (error) {
