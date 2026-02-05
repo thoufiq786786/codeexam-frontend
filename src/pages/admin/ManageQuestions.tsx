@@ -39,7 +39,7 @@ const ManageQuestions = () => {
   // 1. Fetch questions from Backend on load
   const fetchQuestions = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/admin/questions');
+      const response = await fetch('https://codeexam-api.onrender.com/api/admin/questions');
       const data = await response.json();
       setQuestions(data);
     } catch (error) {
@@ -58,7 +58,7 @@ const ManageQuestions = () => {
     if (!deleteId) return;
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/admin/questions/delete/${deleteId}`, {
+      const response = await fetch(`https://codeexam-api.onrender.com/api/admin/questions/delete/${deleteId}`, {
         method: 'POST',
       });
       const data = await response.json();
