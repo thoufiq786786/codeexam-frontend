@@ -50,10 +50,10 @@ const Dashboard = () => {
       if (!user) return;
       try {
         // Fetch submission status to get list of already completed IDs in DB
-        const checkRes = await fetch(`http://127.0.0.1:8000/api/student/check-submission/${user.rollNumber}`);
+        const checkRes = await fetch(`https://codeexam-api.onrender.com/api/student/check-submission/${user.rollNumber}`);
         const status = await checkRes.json();
         
-        const qResponse = await fetch('http://127.0.0.1:8000/api/admin/questions');
+        const qResponse = await fetch('https://codeexam-api.onrender.com/api/admin/questions');
         const allQuestions = await qResponse.json();
         setQuestions(allQuestions);
 
@@ -119,7 +119,7 @@ const Dashboard = () => {
     setIsRunning(true);
     setOutput('Running code...');
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/student/execute', {
+      const res = await fetch('https://codeexam-api.onrender.com/api/student/execute', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ language, source: code, input: selectedQuestion.sampleInput }),
@@ -142,7 +142,7 @@ const Dashboard = () => {
 
     try {
       for (const [index, tc] of selectedQuestion.testCases.entries()) {
-        const res = await fetch('http://127.0.0.1:8000/api/student/execute', {
+        const res = await fetch('https://codeexam-api.onrender.com/api/student/execute', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ language, source: code, input: tc.input }),
@@ -177,7 +177,7 @@ const Dashboard = () => {
           }]
         };
 
-        await fetch('http://127.0.0.1:8000/api/student/save-result', {
+        await fetch('https://codeexam-api.onrender.com/api/student/save-result', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
