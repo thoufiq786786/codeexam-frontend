@@ -22,7 +22,7 @@ const Login = () => {
 
     try {
       // 1. Connect to your FastAPI Student Login route
-      const response = await fetch('http://127.0.0.1:8000/api/student/login', {
+      const response = await fetch('https://codeexam-api.onrender.com/api/student/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // Ensure keys match your LoginSchema (username/password)
