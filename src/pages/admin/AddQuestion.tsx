@@ -82,7 +82,7 @@ const AddQuestion = () => {
     };
   
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/admin/questions', {
+      const response = await fetch('https://codeexam-api.onrender.com/api/admin/questions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(questionData),
