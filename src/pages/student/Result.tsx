@@ -11,7 +11,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/admin/results');
+        const response = await fetch('https://codeexam-api.onrender.com/api/admin/results');
         const data = await response.json();
         
         if (response.ok) {
