@@ -34,12 +34,12 @@ const AdminResults = () => {
 const fetchStatsAndResults = async () => {
     try {
       // Fetch Questions count to calculate /total
-      const qRes = await fetch('http://127.0.0.1:8000/api/admin/questions');
+      const qRes = await fetch('https://codeexam-api.onrender.com/api/admin/questions');
       const qData = await qRes.json();
       setTotalQuestions(qData.length);
 
       // Fetch Results from MongoDB
-      const rRes = await fetch('http://127.0.0.1:8000/api/admin/results');
+      const rRes = await fetch('https://codeexam-api.onrender.com/api/admin/results');
       const rData = await rRes.json();
       setResults(rData);
     } catch (error) {
